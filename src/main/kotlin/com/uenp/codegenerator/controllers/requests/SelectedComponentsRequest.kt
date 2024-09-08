@@ -20,7 +20,7 @@ data class ComponentsRequest(
         val menu: Boolean,
         val card: Boolean?,
         val buttons: Boolean?,
-        val scoreAndTime: Boolean?
+        val scoreAndTime: Boolean
 )
 
 data class ScopeRequest(
