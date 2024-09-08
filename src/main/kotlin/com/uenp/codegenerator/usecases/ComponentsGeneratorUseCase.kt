@@ -26,7 +26,7 @@ class ComponentsGeneratorUseCase {
             scenesDir.mkdirs()
         }
 
-        if (components.menu == true) {
+        if (components.menu) {
             log.info("Generating components for menu")
             val scriptContent = MenuComponent().generateScript()
             val scriptName = "menu.gd"

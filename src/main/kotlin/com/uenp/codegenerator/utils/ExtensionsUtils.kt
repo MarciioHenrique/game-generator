@@ -45,3 +45,5 @@ fun copyDirectory(sourceDir: Path, targetDir: Path) {
 }
 
 const val BASE_PATH = "src/main/kotlin/com/uenp/codegenerator"
+
+const val dollarSign = "$"

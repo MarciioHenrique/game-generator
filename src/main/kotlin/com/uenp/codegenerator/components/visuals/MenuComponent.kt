@@ -1,9 +1,9 @@
 package com.uenp.codegenerator.components.visuals
 
 import com.uenp.codegenerator.components.interfaces.VisualComponent
+import com.uenp.codegenerator.utils.dollarSign
 
 class MenuComponent : VisualComponent {
-    private val dollarSign = "$"
 
     override fun generateScript(): String {
         return """
