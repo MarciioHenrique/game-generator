@@ -2,7 +2,7 @@ package com.uenp.codegenerator.components.visuals
 
 import com.uenp.codegenerator.components.interfaces.VisualComponent
 
-class MenuComponent: VisualComponent {
+class MenuComponent : VisualComponent {
     private val dollarSign = "$"
 
     override fun generateScript(): String {
@@ -13,102 +13,102 @@ class MenuComponent: VisualComponent {
             var mouseOnMenu = false
             
             func _ready():
-                ${dollarSign}Menu/VSlider.value = Global.som\
+                ${dollarSign}Menu/VSlider.value = Global.sound
                 
                 ${dollarSign}Menu/VSlider.connect("value_changed", Callable(self, "on_VSlider_value_changed"))
-                ${dollarSign}Menu/button_volume.connect("pressed", Callable(self, "sound"))
-                ${dollarSign}Menu/button_sair.connect("pressed", Callable(self, "porta"))
+                ${dollarSign}Menu/ButtonVolume.connect("pressed", Callable(self, "sound"))
+                ${dollarSign}Menu/ButtonExit.connect("pressed", Callable(self, "exit"))
                 
-                mudou_scene()
+                scene_change()
             
             func _process(_delta):
                 if mouseOnMenu:
-                    var posicao = get_global_mouse_position()
-                    ${dollarSign}Leitor.position = posicao
-                    ${dollarSign}Leitor.position.x += 60
-                    ${dollarSign}Leitor.position.y += 10
+                    var position = get_global_mouse_position()
+                    ${dollarSign}Reader.position = position
+                    ${dollarSign}Reader.position.x += 60
+                    ${dollarSign}Reader.position.y += 10
                 else:
-                    ${dollarSign}Leitor.position = Vector2(-10, -10)
+                    ${dollarSign}Reader.position = Vector2(-10, -10)
             
             func on_VSlider_value_changed(value):
                 AudioServer.set_bus_volume_db(master_vol , value)
                 if value == -20:
-                    Global.volume_ligado = false
+                    Global.isSoundOn = false
                     AudioServer.set_bus_mute(master_vol , true)
-                    ${dollarSign}Menu/button_volume/Volume_OFF.visible = true
-                    ${dollarSign}Menu/button_volume/Volume_ON.visible = false
+                    ${dollarSign}Menu/ButtonVolume/VolumeOff.visible = true
+                    ${dollarSign}Menu/ButtonVolume/VolumeOn.visible = false
                 else:
-                    Global.volume_ligado = true
+                    Global.isSoundOn = true
                     Global.som = value
                     AudioServer.set_bus_mute(master_vol , false)
-                    ${dollarSign}Menu/button_volume/Volume_ON.visible = true
-                    ${dollarSign}Menu/button_volume/Volume_OFF.visible = false
+                    ${dollarSign}Menu/ButtonVolume/VolumeOn.visible = true
+                    ${dollarSign}Menu/ButtonVolume/VolumeOff.visible = false
             
             func sound():
-                if Global.volume_ligado == true && Global.som != -20:
-                    ${dollarSign}Menu/button_volume/Volume_OFF.visible = true
+                if Global.isSoundOn == true && Global.som != -20:
+                    ${dollarSign}Menu/ButtonVolume/VolumeOff.visible = true
                     ${dollarSign}Menu/VSlider.value = -20
-                    Global.volume_ligado = false 
+                    Global.isSoundOn = false 
                 else:
-                    ${dollarSign}Menu/button_volume/Volume_OFF.visible = false
+                    ${dollarSign}Menu/ButtonVolume/VolumeOff.visible = false
                     ${dollarSign}Menu/VSlider.value = Global.som
-                    Global.volume_ligado = true
+                    Global.isSoundOn = true
             
             func _on_button_volume_mouse_entered():
                 mouseOnMenu = true
-                ${dollarSign}Leitor/texto.text = "VOLUME"
-                ${dollarSign}MenuFixoSom.visible = true
-                ${dollarSign}FundoMenu.visible = false
+                ${dollarSign}Reader/text.text = "VOLUME"
+                ${dollarSign}FixedMenuSound.visible = true
+                ${dollarSign}BackgroundMenu.visible = false
             func _on_button_volume_mouse_exited():
                 mouseOnMenu = false
-                ${dollarSign}MenuFixoSom.visible = false
-                ${dollarSign}FundoMenu.visible = true
+                ${dollarSign}FixedMenuSound.visible = false
+                ${dollarSign}BackgroundMenu.visible = true
             
-            func porta():
-                if Global.telaInicial == true:
+            func exit():
+                if Global.isInitialScreen == true:
                     var code = ""${'"'}
                         window.parent.postMessage({ type: 'closeGame' }, '*');
                     ""${'"'}
                     JavaScriptBridge.eval(code)
                     get_tree().quit()
                 else:
-                    get_tree().change_scene_to_file("res://scenes/TelaDeInicio.tscn")
+                    get_tree().change_scene_to_file("res://scenes/InitialScreen.tscn")
             
-            func _on_button_sair_mouse_entered():
+            func _on_button_exit_mouse_entered():
                 mouseOnMenu = true
-                ${dollarSign}Leitor/texto.text = "VOLTAR"
-                ${dollarSign}MenuFixoPorta.visible = true
-                ${dollarSign}FundoMenu.visible = false
-                if Global.telaInicial == true:
-                    ${dollarSign}Leitor/texto.text = "SAIR"
-                    ${dollarSign}Menu/button_sair/Aberta.visible = true
-                    ${dollarSign}Menu/button_sair/Normal.visible = false
+                ${dollarSign}Reader/text.text = "VOLTAR"
+                ${dollarSign}FixedMenuExit.visible = true
+                ${dollarSign}BackgroundMenu.visible = false
+                if Global.isInitialScreen == true:
+                    ${dollarSign}Reader/text.text = "SAIR"
+                    ${dollarSign}Menu/ButtonExit/OpenDoor.visible = true
+                    ${dollarSign}Menu/ButtonExit/ClosedDoor.visible = false
             
-            func _on_button_sair_mouse_exited():
+            func _on_button_exit_mouse_exited():
                 mouseOnMenu = false
-                ${dollarSign}MenuFixoPorta.visible = false
-                ${dollarSign}FundoMenu.visible = true
-                if Global.telaInicial == true:
-                    ${dollarSign}Menu/button_sair/Aberta.visible = false
-                    ${dollarSign}Menu/button_sair/Normal.visible = true
+                ${dollarSign}FixedMenuExit.visible = false
+                ${dollarSign}BackgroundMenu.visible = true
+                if Global.isInitialScreen == true:
+                    ${dollarSign}Menu/ButtonExit/OpenDoor.visible = false
+                    ${dollarSign}Menu/ButtonExit/ClosedDoor.visible = true
             
             func _on_foraDoInicio_trocarIconMenu():
-                ${dollarSign}Menu/button_sair/Aberta.visible = false
-                ${dollarSign}Menu/button_sair/Normal.visible = false
-                ${dollarSign}Menu/button_sair/Voltar.visible = true
+                ${dollarSign}Menu/ButtonExit/OpenDoor.visible = false
+                ${dollarSign}Menu/ButtonExit/ClosedDoor.visible = false
+                ${dollarSign}Menu/ButtonExit/GoBack.visible = true
             
             func _on_Inicio_Menu():
-                ${dollarSign}Menu/button_sair/Aberta.visible = false
-                ${dollarSign}Menu/button_sair/Normal.visible = true
-                ${dollarSign}Menu/button_sair/Voltar.visible = false
+                ${dollarSign}Menu/ButtonExit/OpenDoor.visible = false
+                ${dollarSign}Menu/ButtonExit/ClosedDoor.visible = true
+                ${dollarSign}Menu/ButtonExit/GoBack.visible = false
             
-            func mudou_scene():
-                if Global.volume_ligado == true:
-                    ${dollarSign}Menu/button_volume/Volume_OFF.visible = false
-                    ${dollarSign}Menu/button_volume/Volume_ON.visible = true
+            func scene_change():
+                if Global.isSoundOn == true:
+                    ${dollarSign}Menu/ButtonVolume/VolumeOff.visible = false
+                    ${dollarSign}Menu/ButtonVolume/VolumeOn.visible = true
                 else:
-                    ${dollarSign}Menu/button_volume/Volume_OFF.visible = true
-                    ${dollarSign}Menu/button_volume/Volume_ON.visible = false
+                    ${dollarSign}Menu/ButtonVolume/VolumeOff.visible = true
+                    ${dollarSign}Menu/ButtonVolume/VolumeOn.visible = false
                     ${dollarSign}Menu/VSlider.value = -20
         """.trimIndent()
     }
@@ -117,19 +117,19 @@ class MenuComponent: VisualComponent {
         return """
             [gd_scene load_steps=17 format=3 uid="uid://6ysea8wd0byr"]
 
-            [ext_resource type="Texture2D" uid="uid://7x6fj0d6ttjd" path="res://import/Menu/volume.png" id="1"]
-            [ext_resource type="Texture2D" uid="uid://bvyq8fcmewo8" path="res://import/Menu/door.png" id="2"]
-            [ext_resource type="Texture2D" uid="uid://0v6ow4w0xr0d" path="res://import/Menu/slider_vol2.png" id="3"]
-            [ext_resource type="Script" path="res://scripts/Menu.gd" id="4"]
-            [ext_resource type="Texture2D" uid="uid://2o1d0aobgyw" path="res://import/Menu/slider_vol.png" id="5"]
-            [ext_resource type="Texture2D" uid="uid://ct8jyh7byka2f" path="res://import/Menu/door2.png" id="6"]
-            [ext_resource type="Texture2D" uid="uid://bwnsea54thr13" path="res://import/Menu/muted.png" id="7"]
-            [ext_resource type="Texture2D" uid="uid://b4vx3if3sg1wr" path="res://import/Menu/menu_fixo.png" id="8"]
-            [ext_resource type="Texture2D" uid="uid://nxuyngdrcxdy" path="res://import/Menu/menu_fixo_porta.png" id="9"]
-            [ext_resource type="Texture2D" uid="uid://2f5rup8j22e1" path="res://import/Menu/seta_back.png" id="10"]
-            [ext_resource type="Texture2D" uid="uid://cxq35ap44crom" path="res://import/Menu/menu_fixo_som.png" id="12"]
-            [ext_resource type="Texture2D" uid="uid://df8e6nnmclxsy" path="res://import/Menu/Leitor.png" id="12_saxmg"]
-            [ext_resource type="FontFile" uid="uid://dlcs0n62teb43" path="res://import/Fontes/identidad/Identidad-ExtraBold.otf" id="13_1kdnj"]
+            [ext_resource type="Texture2D" uid="uid://7x6fj0d6ttjd" path="res://import/menu/volume.png" id="1"]
+            [ext_resource type="Texture2D" uid="uid://bvyq8fcmewo8" path="res://import/menu/closed_door.png" id="2"]
+            [ext_resource type="Texture2D" uid="uid://0v6ow4w0xr0d" path="res://import/menu/slider_volume_button.png" id="3"]
+            [ext_resource type="Script" path="res://scripts/menu.gd" id="4"]
+            [ext_resource type="Texture2D" uid="uid://2o1d0aobgyw" path="res://import/menu/slider_volume_bar.png" id="5"]
+            [ext_resource type="Texture2D" uid="uid://ct8jyh7byka2f" path="res://import/menu/open_door.png" id="6"]
+            [ext_resource type="Texture2D" uid="uid://bwnsea54thr13" path="res://import/menu/muted.png" id="7"]
+            [ext_resource type="Texture2D" uid="uid://b4vx3if3sg1wr" path="res://import/menu/fixed_menu.png" id="8"]
+            [ext_resource type="Texture2D" uid="uid://nxuyngdrcxdy" path="res://import/menu/fixed_menu_door.png" id="9"]
+            [ext_resource type="Texture2D" uid="uid://2f5rup8j22e1" path="res://import/menu/arrow_back.png" id="10"]
+            [ext_resource type="Texture2D" uid="uid://cxq35ap44crom" path="res://import/menu/fixed_menu_sound.png" id="12"]
+            [ext_resource type="Texture2D" uid="uid://df8e6nnmclxsy" path="res://import/menu/reader.png" id="12_saxmg"]
+            [ext_resource type="FontFile" uid="uid://dlcs0n62teb43" path="res://import/fonts/identidad/Identidad-ExtraBold.otf" id="13_1kdnj"]
             
             [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qtuhb"]
             texture = ExtResource("5")
@@ -149,25 +149,25 @@ class MenuComponent: VisualComponent {
             [node name="Menu" type="Node2D"]
             script = ExtResource("4")
             
-            [node name="MenuFixoPorta" type="Sprite2D" parent="."]
+            [node name="FixedMenuExit" type="Sprite2D" parent="."]
             visible = false
             position = Vector2(48, 331.5)
             scale = Vector2(1, 0.996154)
             texture = ExtResource("9")
             
-            [node name="MenuFixoSom" type="Sprite2D" parent="."]
+            [node name="FixedMenuSound" type="Sprite2D" parent="."]
             visible = false
             position = Vector2(46.875, 338.227)
             scale = Vector2(0.992268, 0.983382)
             texture = ExtResource("12")
             
-            [node name="FundoMenu" type="Sprite2D" parent="."]
+            [node name="BackgroundMenu" type="Sprite2D" parent="."]
             position = Vector2(35, 330)
             texture = ExtResource("8")
             
             [node name="Menu" type="Sprite2D" parent="."]
             
-            [node name="button_volume" type="Button" parent="Menu"]
+            [node name="ButtonVolume" type="Button" parent="Menu"]
             offset_left = 4.0
             offset_top = 263.0
             offset_right = 62.0
@@ -175,16 +175,16 @@ class MenuComponent: VisualComponent {
             focus_mode = 0
             flat = true
             
-            [node name="Volume_ON" type="Sprite2D" parent="Menu/button_volume"]
+            [node name="VolumeOn" type="Sprite2D" parent="Menu/ButtonVolume"]
             position = Vector2(29, 30)
             texture = ExtResource("1")
             
-            [node name="Volume_OFF" type="Sprite2D" parent="Menu/button_volume"]
+            [node name="VolumeOff" type="Sprite2D" parent="Menu/ButtonVolume"]
             visible = false
             position = Vector2(29, 31)
             texture = ExtResource("7")
             
-            [node name="button_sair" type="Button" parent="Menu"]
+            [node name="ButtonExit" type="Button" parent="Menu"]
             offset_left = 5.0
             offset_top = 370.0
             offset_right = 61.0
@@ -192,16 +192,16 @@ class MenuComponent: VisualComponent {
             focus_mode = 0
             flat = true
             
-            [node name="Normal" type="Sprite2D" parent="Menu/button_sair"]
+            [node name="ClosedDoor" type="Sprite2D" parent="Menu/ButtonExit"]
             position = Vector2(28, 31)
             texture = ExtResource("2")
             
-            [node name="Aberta" type="Sprite2D" parent="Menu/button_sair"]
+            [node name="OpenDoor" type="Sprite2D" parent="Menu/ButtonExit"]
             visible = false
             position = Vector2(29, 30)
             texture = ExtResource("6")
             
-            [node name="Voltar" type="Sprite2D" parent="Menu/button_sair"]
+            [node name="GoBack" type="Sprite2D" parent="Menu/ButtonExit"]
             visible = false
             position = Vector2(33, 37)
             texture = ExtResource("10")
@@ -224,12 +224,12 @@ class MenuComponent: VisualComponent {
             
             [node name="HTTPRequest" type="HTTPRequest" parent="."]
             
-            [node name="Leitor" type="Sprite2D" parent="."]
+            [node name="Reader" type="Sprite2D" parent="."]
             position = Vector2(-97, 500)
             scale = Vector2(1.08, 1)
             texture = ExtResource("12_saxmg")
             
-            [node name="texto" type="Label" parent="Leitor"]
+            [node name="text" type="Label" parent="Reader"]
             offset_left = -44.4445
             offset_top = -16.0
             offset_right = 51.5555
@@ -239,10 +239,10 @@ class MenuComponent: VisualComponent {
             theme_override_font_sizes/font_size = 20
             text = "VOLUME"
             
-            [connection signal="mouse_entered" from="Menu/button_volume" to="." method="_on_button_volume_mouse_entered"]
-            [connection signal="mouse_exited" from="Menu/button_volume" to="." method="_on_button_volume_mouse_exited"]
-            [connection signal="mouse_entered" from="Menu/button_sair" to="." method="_on_button_sair_mouse_entered"]
-            [connection signal="mouse_exited" from="Menu/button_sair" to="." method="_on_button_sair_mouse_exited"]
+            [connection signal="mouse_entered" from="Menu/ButtonVolume" to="." method="_on_button_volume_mouse_entered"]
+            [connection signal="mouse_exited" from="Menu/ButtonVolume" to="." method="_on_button_volume_mouse_exited"]
+            [connection signal="mouse_entered" from="Menu/ButtonExit" to="." method="_on_button_exit_mouse_entered"]
+            [connection signal="mouse_exited" from="Menu/ButtonExit" to="." method="_on_button_exit_mouse_exited"]
 
         """.trimIndent()
     }

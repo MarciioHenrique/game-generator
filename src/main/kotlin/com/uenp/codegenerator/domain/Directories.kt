@@ -6,5 +6,5 @@ enum class Directories(val folder: String) {
     GLOBALS("scripts/globals"),
     IMPORT("import"),
     FONTS("import/fonts"),
-    MENU("menu"),
+    MENU("import/menu"),
 }

@@ -12,6 +12,8 @@ class Global : ConfigurationComponent {
             var isSoundOn = true
             var volumeOnScreen = true
             
+            var isInitialScreen = false
+            
             var errors = 0
             var score = 0
             var gameTimeMin = 0

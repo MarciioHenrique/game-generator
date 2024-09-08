@@ -3,6 +3,8 @@ package com.uenp.codegenerator.usecases
 import com.uenp.codegenerator.components.visuals.MenuComponent
 import com.uenp.codegenerator.controllers.requests.ComponentsRequest
 import com.uenp.codegenerator.domain.Directories
+import com.uenp.codegenerator.utils.BASE_PATH
+import com.uenp.codegenerator.utils.copyDirectory
 import org.slf4j.LoggerFactory
 import org.springframework.stereotype.Service
 import java.io.File
@@ -35,6 +37,9 @@ class ComponentsGeneratorUseCase {
             val sceneName = "menu.tscn"
             val scenePath = Paths.get(scenesDir.toString(), sceneName)
             Files.write(scenePath, sceneContent.toByteArray())
+
+            val menuDir = File(baseDir, Directories.MENU.folder)
+            copyDirectory(Paths.get("$BASE_PATH/assets/components/menu"), Paths.get(menuDir.toString()))
         }
 
     }

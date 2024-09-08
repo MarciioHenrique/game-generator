@@ -14,6 +14,10 @@ class Project : ConfigurationComponent {
             config/features=PackedStringArray("4.3", "GL Compatibility")
             config/icon="res://icon.png"
             
+            [autoload]
+
+            Global="*res://scripts/globals/global.gd"
+            
             [display]
             
             window/size/viewport_width=1024
