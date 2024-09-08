@@ -2,6 +2,7 @@ package com.uenp.codegenerator.usecases
 
 import com.uenp.codegenerator.components.visuals.MenuComponent
 import com.uenp.codegenerator.controllers.requests.ComponentsRequest
+import org.slf4j.LoggerFactory
 import org.springframework.stereotype.Service
 import java.io.File
 import java.nio.file.Files
@@ -9,6 +10,8 @@ import java.nio.file.Paths
 
 @Service
 class ComponentsGeneratorUseCase {
+    private val log = LoggerFactory.getLogger(javaClass)
+
     fun perform(components: ComponentsRequest, baseDir: File) {
         val scriptsDir = File(baseDir, "scripts")
         if (!scriptsDir.exists()) {
@@ -21,6 +24,7 @@ class ComponentsGeneratorUseCase {
         }
 
         if (components.menu == true) {
+            log.info("Generating components for menu")
             val scriptContent = MenuComponent().generateScript()
             val scriptName = "menu.gd"
             val scriptPath = Paths.get(scriptsDir.toString(), scriptName)

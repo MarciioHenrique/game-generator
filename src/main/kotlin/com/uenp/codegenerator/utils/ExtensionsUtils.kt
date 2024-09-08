@@ -1,15 +1,18 @@
 package com.uenp.codegenerator.utils
 
+import org.slf4j.LoggerFactory
 import java.io.File
 import java.nio.file.Files
 import java.nio.file.StandardCopyOption
+
+private val log = LoggerFactory.getLogger("ExtensionsUtils")
 
 fun normalize(value: String): String {
     return value.lowercase().replace(" ", "-")
 }
 
 fun copyFile(source: File, target: File) {
-    println("Copying file from ${source.absolutePath} to ${target.absolutePath}")
+    log.info("Copying file from ${source.absolutePath} to ${target.absolutePath}")
     Files.copy(source.toPath(), target.toPath(), StandardCopyOption.REPLACE_EXISTING)
 }
 
