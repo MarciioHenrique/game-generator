@@ -13,7 +13,7 @@ data class ConfigurationsRequest(
         val projectName: String,
         val screenDimensions: String?,
         val screenProportions: String?,
-        val gitIgnore: Boolean?
+        val gitIgnore: Boolean
 )
 
 data class ComponentsRequest(

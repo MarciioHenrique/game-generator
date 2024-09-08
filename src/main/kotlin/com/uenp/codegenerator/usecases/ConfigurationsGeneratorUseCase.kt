@@ -1,5 +1,6 @@
 package com.uenp.codegenerator.usecases
 
+import com.uenp.codegenerator.components.configurations.GitIgnore
 import com.uenp.codegenerator.components.configurations.Global
 import com.uenp.codegenerator.components.configurations.Project
 import com.uenp.codegenerator.controllers.requests.ConfigurationsRequest
@@ -23,8 +24,12 @@ class ConfigurationsGeneratorUseCase {
         copyFile(File("$BASE_PATH/assets/configurations/icon.png"), File(baseDir, "icon.png"))
 
         createGlobalScript(configurations, baseDir)
-        
+
         createFonts(baseDir)
+
+        if (configurations.gitIgnore) {
+            createGitIgnore(baseDir)
+        }
     }
 
     private fun createProject(configurations: ConfigurationsRequest, baseDir: File) {
@@ -53,5 +58,12 @@ class ConfigurationsGeneratorUseCase {
         }
 
         copyDirectory(Paths.get("$BASE_PATH/assets/fonts"), Paths.get(fontsDir.toString()))
+    }
+
+    private fun createGitIgnore(baseDir: File) {
+        val content = GitIgnore().generateScript()
+        val name = ".gitignore"
+        val path = Paths.get(baseDir.toString(), name)
+        Files.write(path, content.toByteArray())
     }
 }
