@@ -3,6 +3,7 @@ package com.uenp.codegenerator.usecases
 import com.uenp.codegenerator.components.configurations.Global
 import com.uenp.codegenerator.components.configurations.Project
 import com.uenp.codegenerator.controllers.requests.ConfigurationsRequest
+import com.uenp.codegenerator.domain.Directories
 import com.uenp.codegenerator.utils.BASE_PATH
 import com.uenp.codegenerator.utils.copyFile
 import org.slf4j.LoggerFactory
@@ -31,7 +32,7 @@ class ConfigurationsGeneratorUseCase {
     }
 
     private fun createGlobalScript(configurations: ConfigurationsRequest, baseDir: File) {
-        val scriptsDir = File(baseDir, "scripts/globals")
+        val scriptsDir = File(baseDir, Directories.GLOBALS.folder)
         if (!scriptsDir.exists()) {
             scriptsDir.mkdirs()
         }

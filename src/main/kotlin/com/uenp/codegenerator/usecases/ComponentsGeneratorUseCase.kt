@@ -2,6 +2,7 @@ package com.uenp.codegenerator.usecases
 
 import com.uenp.codegenerator.components.visuals.MenuComponent
 import com.uenp.codegenerator.controllers.requests.ComponentsRequest
+import com.uenp.codegenerator.domain.Directories
 import org.slf4j.LoggerFactory
 import org.springframework.stereotype.Service
 import java.io.File
@@ -13,12 +14,12 @@ class ComponentsGeneratorUseCase {
     private val log = LoggerFactory.getLogger(javaClass)
 
     fun perform(components: ComponentsRequest, baseDir: File) {
-        val scriptsDir = File(baseDir, "scripts")
+        val scriptsDir = File(baseDir, Directories.SCRIPTS.folder)
         if (!scriptsDir.exists()) {
             scriptsDir.mkdirs()
         }
 
-        val scenesDir = File(baseDir, "scenes")
+        val scenesDir = File(baseDir, Directories.SCENES.folder)
         if (!scenesDir.exists()) {
             scenesDir.mkdirs()
         }
