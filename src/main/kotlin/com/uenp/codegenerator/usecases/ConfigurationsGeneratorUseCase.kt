@@ -1,6 +1,7 @@
 package com.uenp.codegenerator.usecases
 
-import com.uenp.codegenerator.components.configurations.ProjectConfiguration
+import com.uenp.codegenerator.components.configurations.Global
+import com.uenp.codegenerator.components.configurations.Project
 import com.uenp.codegenerator.controllers.requests.ConfigurationsRequest
 import com.uenp.codegenerator.utils.BASE_PATH
 import com.uenp.codegenerator.utils.copyFile
@@ -18,12 +19,26 @@ class ConfigurationsGeneratorUseCase {
         log.info("Generating configurations for ${configurations.projectName}")
         createProject(configurations, baseDir)
         copyFile(File("$BASE_PATH/assets/configurations/icon.png"), File(baseDir, "icon.png"))
+
+        createGlobalScript(configurations, baseDir)
     }
 
     private fun createProject(configurations: ConfigurationsRequest, baseDir: File) {
-        val content = ProjectConfiguration().generateScript(configurations)
+        val content = Project().generateScript(configurations)
         val name = "project.godot"
         val path = Paths.get(baseDir.toString(), name)
+        Files.write(path, content.toByteArray())
+    }
+
+    private fun createGlobalScript(configurations: ConfigurationsRequest, baseDir: File) {
+        val scriptsDir = File(baseDir, "scripts/globals")
+        if (!scriptsDir.exists()) {
+            scriptsDir.mkdirs()
+        }
+
+        val content = Global().generateScript(configurations)
+        val name = "global.gd"
+        val path = Paths.get(scriptsDir.toString(), name)
         Files.write(path, content.toByteArray())
     }
 }

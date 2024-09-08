@@ -1,9 +1,10 @@
 package com.uenp.codegenerator.components.configurations
 
+import com.uenp.codegenerator.components.interfaces.ConfigurationComponent
 import com.uenp.codegenerator.controllers.requests.ConfigurationsRequest
 
-class ProjectConfiguration {
-    fun generateScript(configurations: ConfigurationsRequest): String {
+class Project : ConfigurationComponent {
+    override fun generateScript(configurations: ConfigurationsRequest): String {
         return """
             config_version=5
             
