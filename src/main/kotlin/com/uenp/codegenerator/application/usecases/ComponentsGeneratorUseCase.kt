@@ -1,7 +1,7 @@
-package com.uenp.codegenerator.usecases
+package com.uenp.codegenerator.application.usecases
 
-import com.uenp.codegenerator.components.visuals.MenuComponent
-import com.uenp.codegenerator.components.visuals.ScoreAndTimeComponent
+import com.uenp.codegenerator.application.components.visuals.MenuComponent
+import com.uenp.codegenerator.application.components.visuals.ScoreAndTimeComponent
 import com.uenp.codegenerator.controllers.requests.ComponentsRequest
 import com.uenp.codegenerator.domain.Directories
 import com.uenp.codegenerator.utils.BASE_PATH

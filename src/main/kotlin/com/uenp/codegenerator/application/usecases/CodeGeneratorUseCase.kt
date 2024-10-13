@@ -1,4 +1,4 @@
-package com.uenp.codegenerator.usecases
+package com.uenp.codegenerator.application.usecases
 
 import com.uenp.codegenerator.controllers.requests.SelectedComponentsRequest
 import com.uenp.codegenerator.utils.normalize
@@ -8,8 +8,8 @@ import java.io.File
 
 @Service
 class CodeGeneratorUseCase(
-        private val configurationsGeneratorUseCase: ConfigurationsGeneratorUseCase,
-        private val componentsGeneratorUseCase: ComponentsGeneratorUseCase
+    private val configurationsGeneratorUseCase: ConfigurationsGeneratorUseCase,
+    private val componentsGeneratorUseCase: ComponentsGeneratorUseCase
 ) {
     private val log = LoggerFactory.getLogger(javaClass)
 

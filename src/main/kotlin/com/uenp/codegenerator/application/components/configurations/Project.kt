@@ -1,6 +1,6 @@
-package com.uenp.codegenerator.components.configurations
+package com.uenp.codegenerator.application.components.configurations
 
-import com.uenp.codegenerator.components.interfaces.ConfigurationComponent
+import com.uenp.codegenerator.application.components.interfaces.ConfigurationComponent
 import com.uenp.codegenerator.controllers.requests.ConfigurationsRequest
 
 class Project : ConfigurationComponent {

@@ -1,6 +1,6 @@
-package com.uenp.codegenerator.components.visuals
+package com.uenp.codegenerator.application.components.visuals
 
-import com.uenp.codegenerator.components.interfaces.VisualComponent
+import com.uenp.codegenerator.application.components.interfaces.VisualComponent
 import com.uenp.codegenerator.utils.dollarSign
 
 class MenuComponent : VisualComponent {

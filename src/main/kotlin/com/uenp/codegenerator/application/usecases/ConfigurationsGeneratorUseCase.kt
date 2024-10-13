@@ -1,8 +1,8 @@
-package com.uenp.codegenerator.usecases
+package com.uenp.codegenerator.application.usecases
 
-import com.uenp.codegenerator.components.configurations.GitIgnore
-import com.uenp.codegenerator.components.configurations.Global
-import com.uenp.codegenerator.components.configurations.Project
+import com.uenp.codegenerator.application.components.configurations.GitIgnore
+import com.uenp.codegenerator.application.components.configurations.Global
+import com.uenp.codegenerator.application.components.configurations.Project
 import com.uenp.codegenerator.controllers.requests.ConfigurationsRequest
 import com.uenp.codegenerator.domain.Directories
 import com.uenp.codegenerator.utils.BASE_PATH

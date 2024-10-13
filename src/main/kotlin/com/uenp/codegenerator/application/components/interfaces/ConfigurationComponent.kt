@@ -1,4 +1,4 @@
-package com.uenp.codegenerator.components.interfaces
+package com.uenp.codegenerator.application.components.interfaces
 
 import com.uenp.codegenerator.controllers.requests.ConfigurationsRequest
 

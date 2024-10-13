@@ -1,4 +1,4 @@
-package com.uenp.codegenerator.components.configurations
+package com.uenp.codegenerator.application.components.configurations
 
 class GitIgnore {
     fun generateScript(): String {
