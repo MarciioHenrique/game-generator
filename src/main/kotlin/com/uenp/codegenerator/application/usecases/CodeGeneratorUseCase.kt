@@ -9,7 +9,8 @@ import java.io.File
 @Service
 class CodeGeneratorUseCase(
     private val configurationsGeneratorUseCase: ConfigurationsGeneratorUseCase,
-    private val componentsGeneratorUseCase: ComponentsGeneratorUseCase
+    private val componentsGeneratorUseCase: ComponentsGeneratorUseCase,
+    private val databaseGeneratorUseCase: DatabaseGeneratorUseCase
 ) {
     private val log = LoggerFactory.getLogger(javaClass)
 
@@ -20,8 +21,10 @@ class CodeGeneratorUseCase(
             outputDir.mkdirs()
         }
 
-        configurationsGeneratorUseCase.perform(selectedComponentsRequest.configurations, outputDir)
-        componentsGeneratorUseCase.perform(selectedComponentsRequest.components!!, outputDir)
+//        configurationsGeneratorUseCase.perform(selectedComponentsRequest.configurations, outputDir)
+//        componentsGeneratorUseCase.perform(selectedComponentsRequest.components!!, outputDir)
+
+        databaseGeneratorUseCase.perform(selectedComponentsRequest, outputDir)
 
         return "Code generated"
     }

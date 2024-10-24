@@ -1,0 +1,358 @@
+{
+  "words": [
+    {
+      "word": "AVIÃO",
+      "syllable": "A",
+      "images": [
+        {
+          "image": "res://files/a_aviao_1.png"
+        },
+        {
+          "image": "res://files/a_aviao_2.png"
+        },
+        {
+          "image": "res://files/a_aviao_3.png"
+        },
+        {
+          "image": "res://files/a_aviao_4.png"
+        }
+      ],
+      "sound": "res://files/a.mp3",
+      "syllable_complement": "VIAO"
+    },
+    {
+      "word": "BANANA",
+      "syllable": "BA",
+      "images": [
+        {
+          "image": "res://files/ba_banana_1.png"
+        },
+        {
+          "image": "res://files/ba_banana_2.png"
+        },
+        {
+          "image": "res://files/ba_banana_3.png"
+        },
+        {
+          "image": "res://files/ba_banana_4.png"
+        }
+      ],
+      "sound": "res://files/ba.mp3",
+      "syllable_complement": "NANA"
+    },
+    {
+      "word": "CACHORRO",
+      "syllable": "CA",
+      "images": [
+        {
+          "image": "res://files/ca_cachorro_1.png"
+        },
+        {
+          "image": "res://files/ca_cachorro_2.png"
+        },
+        {
+          "image": "res://files/ca_cachorro_3.png"
+        },
+        {
+          "image": "res://files/ca_cachorro_4.png"
+        }
+      ],
+      "sound": "res://files/ca.mp3",
+      "syllable_complement": "CHORRO"
+    },
+    {
+      "word": "DADO",
+      "syllable": "DA",
+      "images": [
+        {
+          "image": "res://files/da_dado_1.png"
+        },
+        {
+          "image": "res://files/da_dado_2.png"
+        },
+        {
+          "image": "res://files/da_dado_3.png"
+        },
+        {
+          "image": "res://files/da_dado_4.png"
+        }
+      ],
+      "sound": "res://files/da.mp3",
+      "syllable_complement": "DO"
+    },
+    {
+      "word": "FACA",
+      "syllable": "FA",
+      "images": [
+        {
+          "image": "res://files/fa_faca_1.png"
+        },
+        {
+          "image": "res://files/fa_faca_2.png"
+        },
+        {
+          "image": "res://files/fa_faca_3.png"
+        },
+        {
+          "image": "res://files/fa_faca_4.png"
+        }
+      ],
+      "sound": "res://files/fa.mp3",
+      "syllable_complement": "CA"
+    },
+    {
+      "word": "GATO",
+      "syllable": "GA",
+      "images": [
+        {
+          "image": "res://files/ga_gato_1.png"
+        },
+        {
+          "image": "res://files/ga_gato_2.png"
+        },
+        {
+          "image": "res://files/ga_gato_3.png"
+        },
+        {
+          "image": "res://files/ga_gato_4.png"
+        }
+      ],
+      "sound": "res://files/ga.mp3",
+      "syllable_complement": "TO"
+    },
+    {
+      "word": "JACARÉ",
+      "syllable": "JA",
+      "images": [
+        {
+          "image": "res://files/ja_jacare_1.png"
+        },
+        {
+          "image": "res://files/ja_jacare_2.png"
+        },
+        {
+          "image": "res://files/ja_jacare_3.png"
+        },
+        {
+          "image": "res://files/ja_jacare_4.png"
+        }
+      ],
+      "sound": "res://files/ja.mp3",
+      "syllable_complement": "CARE"
+    },
+    {
+      "word": "LÁPIS",
+      "syllable": "LA",
+      "images": [
+        {
+          "image": "res://files/la_lapis_1.png"
+        },
+        {
+          "image": "res://files/la_lapis_2.png"
+        },
+        {
+          "image": "res://files/la_lapis_3.png"
+        },
+        {
+          "image": "res://files/la_lapis_4.png"
+        }
+      ],
+      "sound": "res://files/la.mp3",
+      "syllable_complement": "PIS"
+    },
+    {
+      "word": "MACACO",
+      "syllable": "MA",
+      "images": [
+        {
+          "image": "res://files/ma_macaco_1.png"
+        },
+        {
+          "image": "res://files/ma_macaco_2.png"
+        },
+        {
+          "image": "res://files/ma_macaco_3.png"
+        },
+        {
+          "image": "res://files/ma_macaco_4.png"
+        }
+      ],
+      "sound": "res://files/ma.mp3",
+      "syllable_complement": "CACO"
+    },
+    {
+      "word": "NAVIO",
+      "syllable": "NA",
+      "images": [
+        {
+          "image": "res://files/na_navio_1.png"
+        },
+        {
+          "image": "res://files/na_navio_2.png"
+        },
+        {
+          "image": "res://files/na_navio_3.png"
+        },
+        {
+          "image": "res://files/na_navio_4.png"
+        }
+      ],
+      "sound": "res://files/na.mp3",
+      "syllable_complement": "VIO"
+    },
+    {
+      "word": "PATO",
+      "syllable": "PA",
+      "images": [
+        {
+          "image": "res://files/pa_pato_1.png"
+        },
+        {
+          "image": "res://files/pa_pato_2.png"
+        },
+        {
+          "image": "res://files/pa_pato_3.png"
+        },
+        {
+          "image": "res://files/pa_pato_4.png"
+        }
+      ],
+      "sound": "res://files/pa.mp3",
+      "syllable_complement": "TO"
+    },
+    {
+      "word": "QUATI",
+      "syllable": "QUA",
+      "images": [
+        {
+          "image": "res://files/qua_quati_1.png"
+        },
+        {
+          "image": "res://files/qua_quati_2.png"
+        },
+        {
+          "image": "res://files/qua_quati_3.png"
+        }
+      ],
+      "sound": "res://files/qua.mp3",
+      "syllable_complement": "TI"
+    },
+    {
+      "word": "RATO",
+      "syllable": "RA",
+      "images": [
+        {
+          "image": "res://files/ra_rato_1.png"
+        },
+        {
+          "image": "res://files/ra_rato_2.png"
+        },
+        {
+          "image": "res://files/ra_rato_3.png"
+        },
+        {
+          "image": "res://files/ra_rato_4.png"
+        }
+      ],
+      "sound": "res://files/ra.mp3",
+      "syllable_complement": "TO"
+    },
+    {
+      "word": "SAPO",
+      "syllable": "SA",
+      "images": [
+        {
+          "image": "res://files/sa_sapo_1.png"
+        },
+        {
+          "image": "res://files/sa_sapo_2.png"
+        },
+        {
+          "image": "res://files/sa_sapo_3.png"
+        },
+        {
+          "image": "res://files/sa_sapo_4.png"
+        }
+      ],
+      "sound": "res://files/sa.mp3",
+      "syllable_complement": "PO"
+    },
+    {
+      "word": "TATU",
+      "syllable": "TA",
+      "images": [
+        {
+          "image": "res://files/ta_tatu_1.png"
+        },
+        {
+          "image": "res://files/ta_tatu_2.png"
+        },
+        {
+          "image": "res://files/ta_tatu_3.png"
+        },
+        {
+          "image": "res://files/ta_tatu_4.png"
+        }
+      ],
+      "sound": "res://files/ta.mp3",
+      "syllable_complement": "TU"
+    },
+    {
+      "word": "VACA",
+      "syllable": "VA",
+      "images": [
+        {
+          "image": "res://files/va_vaca_1.png"
+        },
+        {
+          "image": "res://files/va_vaca_2.png"
+        },
+        {
+          "image": "res://files/va_vaca_3.png"
+        },
+        {
+          "image": "res://files/va_vaca_4.png"
+        }
+      ],
+      "sound": "res://files/va.mp3",
+      "syllable_complement": "CA"
+    },
+    {
+      "word": "XADREZ",
+      "syllable": "XA",
+      "images": [
+        {
+          "image": "res://files/xa_xadrez_1.png"
+        },
+        {
+          "image": "res://files/xa_xadrez_2.png"
+        },
+        {
+          "image": "res://files/xa_xadrez_3.png"
+        },
+        {
+          "image": "res://files/xa_xadrez_4.png"
+        }
+      ],
+      "sound": "res://files/xa.mp3",
+      "syllable_complement": "DREZ"
+    },
+    {
+      "word": "ZABUMBA",
+      "syllable": "ZA",
+      "images": [
+        {
+          "image": "res://files/za_zabumba_1.png"
+        },
+        {
+          "image": "res://files/za_zabumba_2.png"
+        },
+        {
+          "image": "res://files/za_zabumba_3.png"
+        }
+      ],
+      "sound": "res://files/za.mp3",
+      "syllable_complement": "BUMBA"
+    }
+  ]
+}
