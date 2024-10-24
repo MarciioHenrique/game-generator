@@ -40,7 +40,7 @@ class ComponentsGeneratorUseCase {
             Files.write(scenePath, sceneContent.toByteArray())
 
             val menuDir = File(baseDir, Directories.MENU.folder)
-            copyDirectory(Paths.get("$BASE_PATH/assets/components/menu"), Paths.get(menuDir.toString()))
+            copyDirectory(Paths.get("$BASE_PATH/application/assets/components/menu"), Paths.get(menuDir.toString()))
         }
 
         if (components.scoreAndTime) {

@@ -21,8 +21,8 @@ class CodeGeneratorUseCase(
             outputDir.mkdirs()
         }
 
-//        configurationsGeneratorUseCase.perform(selectedComponentsRequest.configurations, outputDir)
-//        componentsGeneratorUseCase.perform(selectedComponentsRequest.components!!, outputDir)
+        configurationsGeneratorUseCase.perform(selectedComponentsRequest.configurations, outputDir)
+        componentsGeneratorUseCase.perform(selectedComponentsRequest.components!!, outputDir)
 
         databaseGeneratorUseCase.perform(selectedComponentsRequest, outputDir)
 

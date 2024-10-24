@@ -21,7 +21,7 @@ class ConfigurationsGeneratorUseCase {
     fun perform(configurations: ConfigurationsRequest, baseDir: File) {
         log.info("Generating configurations for ${configurations.projectName}")
         createProject(configurations, baseDir)
-        copyFile(File("$BASE_PATH/assets/configurations/icon.png"), File(baseDir, "icon.png"))
+        copyFile(File("$BASE_PATH/application/assets/configurations/icon.png"), File(baseDir, "icon.png"))
 
         createGlobalScript(configurations, baseDir)
 
@@ -57,7 +57,7 @@ class ConfigurationsGeneratorUseCase {
             fontsDir.mkdirs()
         }
 
-        copyDirectory(Paths.get("$BASE_PATH/assets/fonts"), Paths.get(fontsDir.toString()))
+        copyDirectory(Paths.get("$BASE_PATH/application/assets/fonts"), Paths.get(fontsDir.toString()))
     }
 
     private fun createGitIgnore(baseDir: File) {
