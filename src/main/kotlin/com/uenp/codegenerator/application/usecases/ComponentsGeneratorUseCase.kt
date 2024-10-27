@@ -1,5 +1,6 @@
 package com.uenp.codegenerator.application.usecases
 
+import com.uenp.codegenerator.application.components.visuals.IntroComponent
 import com.uenp.codegenerator.application.components.visuals.MenuComponent
 import com.uenp.codegenerator.application.components.visuals.ScoreAndTimeComponent
 import com.uenp.codegenerator.controllers.requests.ComponentsRequest
@@ -52,6 +53,22 @@ class ComponentsGeneratorUseCase {
 
             val sceneContent = ScoreAndTimeComponent().generateScene()
             val sceneName = "scoreAndTime.tscn"
+            val scenePath = Paths.get(scenesDir.toString(), sceneName)
+            Files.write(scenePath, sceneContent.toByteArray())
+        }
+
+        if (components.intro) {
+            log.info("Generating components for intro")
+            val introDir = File(baseDir, Directories.VIDEOS.folder)
+            copyDirectory(Paths.get("$BASE_PATH/application/assets/components/intro"), Paths.get(introDir.toString()))
+
+            val scriptContent = IntroComponent().generateScript()
+            val scriptName = "intro.gd"
+            val scriptPath = Paths.get(scriptsDir.toString(), scriptName)
+            Files.write(scriptPath, scriptContent.toByteArray())
+
+            val sceneContent = IntroComponent().generateScene()
+            val sceneName = "intro.tscn"
             val scenePath = Paths.get(scenesDir.toString(), sceneName)
             Files.write(scenePath, sceneContent.toByteArray())
         }

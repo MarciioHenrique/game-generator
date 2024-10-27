@@ -9,4 +9,5 @@ enum class Directories(val folder: String) {
     MENU("import/menu"),
     IMAGES("import/images"),
     SOUNDS("import/sounds"),
+    VIDEOS("import/videos"),
 }
