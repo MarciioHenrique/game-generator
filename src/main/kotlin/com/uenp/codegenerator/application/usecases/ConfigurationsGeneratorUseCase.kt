@@ -1,5 +1,6 @@
 package com.uenp.codegenerator.application.usecases
 
+import com.uenp.codegenerator.application.components.configurations.Database
 import com.uenp.codegenerator.application.components.configurations.GitIgnore
 import com.uenp.codegenerator.application.components.configurations.Global
 import com.uenp.codegenerator.application.components.configurations.Project
@@ -29,6 +30,10 @@ class ConfigurationsGeneratorUseCase {
 
         if (configurations.gitIgnore) {
             createGitIgnore(baseDir)
+        }
+
+        if (configurations.database) {
+            createDatabase(configurations, baseDir)
         }
     }
 
@@ -64,6 +69,18 @@ class ConfigurationsGeneratorUseCase {
         val content = GitIgnore().generateScript()
         val name = ".gitignore"
         val path = Paths.get(baseDir.toString(), name)
+        Files.write(path, content.toByteArray())
+    }
+
+    private fun createDatabase(configurations: ConfigurationsRequest, baseDir: File) {
+        val scriptsDir = File(baseDir, Directories.GLOBALS.folder)
+        if (!scriptsDir.exists()) {
+            scriptsDir.mkdirs()
+        }
+
+        val content = Database().generateScript(configurations)
+        val name = "database.gd"
+        val path = Paths.get(scriptsDir.toString(), name)
         Files.write(path, content.toByteArray())
     }
 }
