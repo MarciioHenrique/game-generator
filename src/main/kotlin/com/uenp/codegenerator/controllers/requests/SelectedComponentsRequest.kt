@@ -22,7 +22,8 @@ data class ComponentsRequest(
     val buttons: Boolean?,
     val scoreAndTime: Boolean,
     val intro: Boolean,
-    val startScreen: Boolean
+    val startScreen: Boolean,
+    val endScreen: Boolean
 )
 
 data class ScopeRequest(

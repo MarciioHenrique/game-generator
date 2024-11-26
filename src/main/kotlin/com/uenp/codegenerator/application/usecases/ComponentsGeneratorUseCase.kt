@@ -1,5 +1,6 @@
 package com.uenp.codegenerator.application.usecases
 
+import com.uenp.codegenerator.application.components.visuals.EndScreenComponent
 import com.uenp.codegenerator.application.components.visuals.IntroComponent
 import com.uenp.codegenerator.application.components.visuals.MenuComponent
 import com.uenp.codegenerator.application.components.visuals.ScoreAndTimeComponent
@@ -89,6 +90,19 @@ class ComponentsGeneratorUseCase {
 
             val sceneContent = StartScreenComponent().generateScene()
             val sceneName = "startScreen.tscn"
+            val scenePath = Paths.get(scenesDir.toString(), sceneName)
+            Files.write(scenePath, sceneContent.toByteArray())
+        }
+
+        if (components.endScreen) {
+            log.info("Generating components for end screen")
+            val scriptContent = EndScreenComponent().generateScript()
+            val scriptName = "endScreen.gd"
+            val scriptPath = Paths.get(scriptsDir.toString(), scriptName)
+            Files.write(scriptPath, scriptContent.toByteArray())
+
+            val sceneContent = EndScreenComponent().generateScene()
+            val sceneName = "endScreen.tscn"
             val scenePath = Paths.get(scenesDir.toString(), sceneName)
             Files.write(scenePath, sceneContent.toByteArray())
         }
