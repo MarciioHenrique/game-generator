@@ -35,6 +35,10 @@ class ConfigurationsGeneratorUseCase {
         if (configurations.database) {
             createDatabase(configurations, baseDir)
         }
+
+        if (configurations.baseSounds) {
+            createBaseSounds(baseDir)
+        }
     }
 
     private fun createProject(configurations: ConfigurationsRequest, baseDir: File) {
@@ -82,5 +86,17 @@ class ConfigurationsGeneratorUseCase {
         val name = "database.gd"
         val path = Paths.get(scriptsDir.toString(), name)
         Files.write(path, content.toByteArray())
+    }
+
+    private fun createBaseSounds(baseDir: File) {
+        val soundsDir = File(baseDir, Directories.SOUNDS.folder)
+        if (!soundsDir.exists()) {
+            soundsDir.mkdirs()
+        }
+
+        copyDirectory(
+            Paths.get("$BASE_PATH/application/assets/configurations/basesounds"),
+            Paths.get(soundsDir.toString())
+        )
     }
 }

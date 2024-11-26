@@ -15,6 +15,7 @@ data class ConfigurationsRequest(
     val screenProportions: String?,
     val gitIgnore: Boolean,
     val database: Boolean,
+    val baseSounds: Boolean
 )
 
 data class ComponentsRequest(
