@@ -10,4 +10,5 @@ enum class Directories(val folder: String) {
     IMAGES("import/images"),
     SOUNDS("import/sounds"),
     VIDEOS("import/videos"),
+    START_SCREEN("import/startScreen"),
 }

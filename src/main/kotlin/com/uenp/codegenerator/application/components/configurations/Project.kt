@@ -11,6 +11,7 @@ class Project : ConfigurationComponent {
             [application]
             
             config/name="${configurations.projectName}"
+            run/main_scene="res://scenes/startScreen.tscn"
             config/features=PackedStringArray("4.3", "GL Compatibility")
             config/icon="res://icon.png"
             

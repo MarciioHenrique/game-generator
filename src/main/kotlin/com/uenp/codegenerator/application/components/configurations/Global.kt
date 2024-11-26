@@ -12,6 +12,8 @@ class Global : ConfigurationComponent {
             var isSoundOn = true
             var volumeOnScreen = true
             
+            var tutorial = 0
+            var playIntro = true
             var isInitialScreen = false
             
             var errors = 0

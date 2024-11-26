@@ -9,7 +9,7 @@ class IntroComponent : VisualComponent {
             extends VideoStreamPlayer
 
             func _ready():
-	        ${dollarSign}AnimationPlayer.play("FADE OUT")
+	            ${dollarSign}AnimationPlayer.play("FADE OUT")
         """.trimIndent()
     }
 

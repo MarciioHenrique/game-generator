@@ -3,6 +3,7 @@ package com.uenp.codegenerator.application.usecases
 import com.uenp.codegenerator.application.components.visuals.IntroComponent
 import com.uenp.codegenerator.application.components.visuals.MenuComponent
 import com.uenp.codegenerator.application.components.visuals.ScoreAndTimeComponent
+import com.uenp.codegenerator.application.components.visuals.StartScreenComponent
 import com.uenp.codegenerator.controllers.requests.ComponentsRequest
 import com.uenp.codegenerator.domain.Directories
 import com.uenp.codegenerator.utils.BASE_PATH
@@ -69,6 +70,25 @@ class ComponentsGeneratorUseCase {
 
             val sceneContent = IntroComponent().generateScene()
             val sceneName = "intro.tscn"
+            val scenePath = Paths.get(scenesDir.toString(), sceneName)
+            Files.write(scenePath, sceneContent.toByteArray())
+        }
+
+        if (components.startScreen) {
+            log.info("Generating components for start screen")
+            val startScreenDir = File(baseDir, Directories.START_SCREEN.folder)
+            copyDirectory(
+                Paths.get("$BASE_PATH/application/assets/components/startScreen"),
+                Paths.get(startScreenDir.toString())
+            )
+
+            val scriptContent = StartScreenComponent().generateScript()
+            val scriptName = "startScreen.gd"
+            val scriptPath = Paths.get(scriptsDir.toString(), scriptName)
+            Files.write(scriptPath, scriptContent.toByteArray())
+
+            val sceneContent = StartScreenComponent().generateScene()
+            val sceneName = "startScreen.tscn"
             val scenePath = Paths.get(scenesDir.toString(), sceneName)
             Files.write(scenePath, sceneContent.toByteArray())
         }

@@ -11,8 +11,6 @@ data class SelectedComponentsRequest(
 
 data class ConfigurationsRequest(
     val projectName: String,
-    val screenDimensions: String?,
-    val screenProportions: String?,
     val gitIgnore: Boolean,
     val database: Boolean,
     val baseSounds: Boolean
@@ -23,7 +21,8 @@ data class ComponentsRequest(
     val card: Boolean?,
     val buttons: Boolean?,
     val scoreAndTime: Boolean,
-    val intro: Boolean
+    val intro: Boolean,
+    val startScreen: Boolean
 )
 
 data class ScopeRequest(
