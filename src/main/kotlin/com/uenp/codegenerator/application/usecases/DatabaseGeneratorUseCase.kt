@@ -16,8 +16,10 @@ class DatabaseGeneratorUseCase {
     fun perform(selectedComponentsRequest: SelectedComponentsRequest, baseDir: File) {
         val selectedScope = selectedComponentsRequest.scope
         if (selectedScope != null) {
-            selectedScope.vowels?.map { vowel ->
-                selectedScope.stages?.map { stage -> generateDatabase(vowel, stage, baseDir) }
+            val vowels = listOf(Vowels.A)
+            val stages = listOf(Stages.SYLLABLE)
+            vowels.map { vowel ->
+                stages.map { stage -> generateDatabase(vowel, stage, baseDir) }
             }
 
         }

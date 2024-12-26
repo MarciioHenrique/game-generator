@@ -26,6 +26,6 @@ class CodeGeneratorUseCase(
 
         databaseGeneratorUseCase.perform(selectedComponentsRequest, outputDir)
 
-        return "Code generated"
+        return outputDir.absolutePath
     }
 }
